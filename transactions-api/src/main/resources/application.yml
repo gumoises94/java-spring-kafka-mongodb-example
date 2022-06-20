@@ -1,0 +1,3 @@
+server:
+ servlet:
+  context-path: /transactions-api/v1
