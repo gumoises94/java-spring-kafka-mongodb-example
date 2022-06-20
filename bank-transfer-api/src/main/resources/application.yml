@@ -3,4 +3,4 @@ server:
   context-path: /bank-transfer-api/v1
  error:
   include-message: always
-  include-binding-errors: always 
+  include-binding-errors: always
