@@ -1,4 +1,7 @@
-package com.gustavosaron.transactionsapi.dto;
+package com.gustavosaron.transactionsapi.entity;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +12,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class TransactionDTO {
+@Document
+public class TransactionEntity {
+	
+	@Id
+	private String id;
 	private String transactionType;
 	private Object transactionData;
 }

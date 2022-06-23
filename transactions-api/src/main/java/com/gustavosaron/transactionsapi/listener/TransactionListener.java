@@ -2,16 +2,21 @@ package com.gustavosaron.transactionsapi.listener;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gustavosaron.transactionsapi.dto.TransactionDTO;
+import com.gustavosaron.transactionsapi.service.TransactionService;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-@Service
+@Component
 @Slf4j
+@RequiredArgsConstructor
 public class TransactionListener {
+	
+	private final TransactionService transactionService;
 	
 	private ObjectMapper mapper = new ObjectMapper();
 	
@@ -21,6 +26,8 @@ public class TransactionListener {
 		
         log.info("Received transaction of type: {}", transaction.getTransactionType());
         log.info("Transaction data: {}", mapper.writeValueAsString(transaction.getTransactionData()));
+        
+        transactionService.insert(transaction);
     }
 
 }
