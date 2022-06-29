@@ -1,7 +1,3 @@
-server:
- port: 9091
-
- 
 logging:
  level:
   org:
@@ -20,3 +16,8 @@ spring:
       database: bank-db
       port: 27017
       host: localhost
+  kafka:
+    consumer:
+      group-id: group-1
+      auto-offset-reset: earliest
+      bootstrap-servers: localhost:9092      

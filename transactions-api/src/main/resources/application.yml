@@ -1,20 +1,6 @@
 server:
+ port: 9091
  servlet:
   context-path: /transactions-api/v1
-  
-spring:
- kafka:
-  consumer:
-   group-id: group-1
-   auto-offset-reset: earliest
-   bootstrap-servers: localhost:9092
    
- spring:
-  data:
-    mongodb:
-      authentication-database: admin
-      username: ${MONGODB_USERNAME}
-      password: ${MONGODB_PASSWORD}
-      database: bank-db
-      port: ${MONGODB_PORT}
-      host: ${MONGODB_HOST}
+
