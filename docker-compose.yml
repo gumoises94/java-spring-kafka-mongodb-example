@@ -5,7 +5,7 @@ services:
     build:
       context: bank-transfer-api
       dockerfile: Dockerfile
-    image: bank-transfer-api:latest
+    image: gumoises/bank-transfer-api:latest
     ports:
       - 9090:9090
     environment:
@@ -16,11 +16,10 @@ services:
       - bank-network
   transactions-api:
     container_name: transactions-api
-    image: transactions-api:latest
+    image: gumoises/transactions-api:latest
     build:
       context: transactions-api
       dockerfile: Dockerfile
-    image: transactions-api:latest
     ports:
       - 9091:9091
     environment:
